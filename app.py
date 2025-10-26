@@ -12,7 +12,7 @@ db = mysql.connector.connect(
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/book", methods=["GET", "POST"])
 def booking():
     if request.method == "POST":
         name = request.form["name"]
