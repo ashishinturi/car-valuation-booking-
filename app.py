@@ -1,15 +1,19 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 
-# 🔌 Paste your Railway connection block here
-db = mysql.connector.connect(
-    host="maglev.proxy.rlwy.net",
-    port=55869,
-    user="root",
-    password="mEoNxqOPsxHUwuVBiVpJcfeBeEDcoPIJ",
-    database="railway"
-)
+app = Flask(__name__)
 
+# 🔽 Paste your DB connection here
+try:
+    db = mysql.connector.connect(
+        host="maglev.proxy.rlwy.net",
+        port=55869,
+        user="root",
+        password="mEoNxqOPsxHUwuVBiVpJcfeBeEDcoPIJ",
+        database="railway"
+    )
+except Exception as e:
+    print("Database connection failed:", e)
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
