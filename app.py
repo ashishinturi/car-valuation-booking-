@@ -18,21 +18,26 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def booking():
-    if request.method == "POST":
+   if request.method == "POST":
+    try:
         name = request.form["name"]
         email = request.form["email"]
-        car_model = request.form["car_model"]
-        car_year = request.form["car_year"]
+        phone = request.form["phone"]
+        make = request.form["make"]
+        model = request.form["model"]
+        year = request.form["year"]
+        mileage = request.form["mileage"]
+        condition = request.form["condition"]
+        date = request.form["date"]
+        time = request.form["time"]
 
         cursor = db.cursor()
         cursor.execute("""
-            INSERT INTO bookings (name, email, car_model, car_year)
-            VALUES (%s, %s, %s, %s)
-        """, (name, email, car_model, car_year))
+            INSERT INTO bookings (name, email, phone, make, model, year, mileage, condition, date, time)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (name, email, phone, make, model, year, mileage, condition, date, time))
         db.commit()
         return "Booking submitted successfully!"
-
-    return render_template("booking_form.html")
-
-if __name__ == "__main__":
-    app.run()
+    except Exception as e:
+        print("Form error:", e)
+        return "Bad form submission"
