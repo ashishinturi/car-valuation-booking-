@@ -28,7 +28,7 @@ def booking():
         db.commit()
         return "Booking submitted successfully!"
 
-    return render_template("form.html")
+    return render_template("booking_form.html")
 
 if __name__ == "__main__":
     app.run()
