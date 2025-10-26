@@ -4,7 +4,7 @@ import mysql.connector
 app = Flask(__name__)
 
 db = mysql.connector.connect(
-    host="localhost",
+    host="localhost:3306",
     user="root",
     password="ashish@123",
     database="car_valuation"
@@ -32,3 +32,6 @@ def book():
 
 if __name__ == '__main__':
     app.run(debug=True)
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=5000)
