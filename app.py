@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
-import mysql.connector
+from flask import Flask, render_template, request, redirect, url_for # type: ignore
+import mysql.connector # type: ignore
 
 app = Flask(__name__)
 
-# 🔽 Paste your DB connection here
+# ✅ DB connection block — no extra indentation
 try:
     db = mysql.connector.connect(
         host="maglev.proxy.rlwy.net",
@@ -14,9 +14,9 @@ try:
     )
 except Exception as e:
     print("Database connection failed:", e)
-app = Flask(__name__)
 
-   @app.route("/", methods=["GET", "POST"])
+# ✅ Route starts at column 0 — no spaces or tabs before it
+@app.route("/", methods=["GET", "POST"])
 def booking():
     if request.method == "POST":
         try:
@@ -40,5 +40,9 @@ def booking():
             return "Booking submitted successfully!"
         except Exception as e:
             print("Form error:", e)
-            return "Bad form submission"  # ✅ This return was missing
-    return render_template("booking_form.html")  # ✅ This handles GET requests
+            return "Bad form submission"
+    return render_template("booking_form.html")
+
+# ✅ Main block — also starts at column 0
+if __name__ == "__main__":
+    app.run()
