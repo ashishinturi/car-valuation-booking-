@@ -1,0 +1,21 @@
+<h2 style="text-align:center; font-family:sans-serif;">Book Your Car Valuation</h2>
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+<form action="/book" method="POST">
+  <input name="name" placeholder="Your Name" required><br>
+  <input name="email" placeholder="Email" required><br>
+  <input name="phone" placeholder="Phone" required><br>
+  <input name="make" placeholder="Car Make" required><br>
+  <input name="model" placeholder="Car Model" required><br>
+  <input name="year" type="number" placeholder="Year" required><br>
+  <input name="mileage" type="number" placeholder="Mileage" required><br>
+  <select name="condition">
+    <option>Excellent</option>
+    <option>Good</option>
+    <option>Fair</option>
+    <option>Poor</option>
+  </select><br>
+  <input name="date" type="date" required><br>
+  <input name="time" type="time" required><br>
+  <button type="submit">Book Valuation</button>
+</form>
