@@ -33,9 +33,9 @@ def booking():
 
             cursor = db.cursor()
             cursor.execute("""
-                INSERT INTO bookings (name, email, phone, make, model, year, mileage, condition, date, time)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """, (name, email, phone, make, model, year, mileage, condition, date, time))
+    INSERT INTO bookings (name, email, phone, make, model, year, mileage, `condition`, `date`, `time`)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+""", (name, email, phone, make, model, year, mileage, condition, date, time))
             db.commit()
             return "Booking submitted successfully!"
         except Exception as e:
