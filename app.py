@@ -37,12 +37,12 @@ def booking():
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, (name, email, phone, make, model, year, mileage, condition, date, time))
             db.commit()
-
-            return redirect(url_for("success"))  # ✅ Properly indented
+            
         except Exception as e:
             print("Form error:", e)
             return "Bad form submission"
     return render_template("booking_form.html")
+
 
 # ✅ Success route
 @app.route("/success")
