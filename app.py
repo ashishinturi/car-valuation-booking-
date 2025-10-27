@@ -42,6 +42,9 @@ def booking():
             print("Form error:", e)
             return "Bad form submission"
     return render_template("booking_form.html")
+@app.route("/success")
+def success():
+    return render_template("success.html")
 
 # ✅ Main block — also starts at column 0
 if __name__ == "__main__":
