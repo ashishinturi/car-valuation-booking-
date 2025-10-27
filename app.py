@@ -38,8 +38,7 @@ def booking():
             """, (name, email, phone, make, model, year, mileage, condition, date, time))
             db.commit()
 
-            # ✅ Redirect to success page after successful booking
-            return redirect(url_for("success"))
+            return redirect(url_for("success"))  # ✅ Must be inside try block
 
         except Exception as e:
             print("Form error:", e)
