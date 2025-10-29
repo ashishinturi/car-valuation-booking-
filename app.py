@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for  # type: ignore
-import mysql.connector  # type: ignore
+from flask import Flask, render_template, request, redirect, url_for # type: ignore
+import mysql.connector # type: ignore
 
 app = Flask(__name__)
 
-# ✅ DB connection
+# ✅ Database connection
 try:
     db = mysql.connector.connect(
         host="maglev.proxy.rlwy.net",
@@ -69,10 +69,22 @@ def booking():
             return "Bad form submission"
     return render_template("booking_form.html")
 
-# ✅ Success route
+# ✅ Success page
 @app.route("/success")
 def success():
     return render_template("success.html")
+
+# ✅ Public view page
+@app.route("/view")
+def view():
+    try:
+        cursor = db.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM valuations ORDER BY pdate DESC")
+        records = cursor.fetchall()
+        return render_template("view.html", records=records)
+    except Exception as e:
+        print("View error:", e)
+        return "Unable to load valuation records"
 
 # ✅ Run the app
 if __name__ == "__main__":
