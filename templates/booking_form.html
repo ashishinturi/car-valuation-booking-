@@ -1,87 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Car Valuation Booking</title>
-  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <div class="container mt-5 mb-5">
-    <div class="text-center mb-4">
-      <h2><i class="fas fa-car-side me-2"></i>Book Your Car Valuation</h2>
-      <p class="text-muted">Get a professional valuation in minutes</p>
-    </div>
+<!-- Valuation Entry Heading -->
+<div class="bg-primary text-white p-4 rounded shadow-sm mb-4">
+  <h3 class="mb-1">
+    <i class="fas fa-file-invoice-dollar me-2"></i>Valuation Entry Form
+  </h3>
+  <p class="mb-0">
+    Please fill in the vehicle and customer details below to generate a valuation record.
+  </p>
+</div>
 
-    <form method="POST" action="/" class="row g-3">
-      <div class="col-md-6">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="phone" class="form-label">Phone Number</label>
-        <input type="tel" class="form-control" id="phone" name="phone" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="make" class="form-label">Car Make</label>
-        <input type="text" class="form-control" id="make" name="make" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="model" class="form-label">Car Model</label>
-        <input type="text" class="form-control" id="model" name="model" required>
-      </div>
-
-      <div class="col-md-3">
-        <label for="year" class="form-label">Year</label>
-        <input type="number" class="form-control" id="year" name="year" required>
-      </div>
-
-      <div class="col-md-3">
-        <label for="mileage" class="form-label">Mileage (km)</label>
-        <input type="number" class="form-control" id="mileage" name="mileage" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="condition" class="form-label">Condition</label>
-        <select class="form-select" id="condition" name="condition" required>
-          <option selected disabled value="">Choose...</option>
-          <option>Excellent</option>
-          <option>Good</option>
-          <option>Fair</option>
-          <option>Poor</option>
-        </select>
-      </div>
-
-      <div class="col-md-6">
-        <label for="date" class="form-label">Preferred Date</label>
-        <input type="date" class="form-control" id="date" name="date" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="time" class="form-label">Preferred Time</label>
-        <input type="time" class="form-control" id="time" name="time" required>
-      </div>
-
-      <div class="col-12 text-center mt-4">
-        <button type="submit" class="btn btn-primary px-5">
-          <i class="fas fa-calendar-check me-2"></i>Book Now
-        </button>
-      </div>
-    </form>
+<!-- Valuation Entry Fields -->
+<div class="row g-3 mt-4 bg-light p-4 rounded shadow-sm border border-primary">
+  <div class="col-md-2">
+    <label for="sno" class="form-label text-primary fw-bold">S No</label>
+    <input type="text" class="form-control border-info" id="sno" name="sno">
   </div>
-
-  <footer class="text-center text-muted mb-4">
-    <small>&copy; {{ current_year }} Achulla Valuations. All rights reserved.</small>
-  </footer>
-</body>
-</html>
+  <div class="col-md-3">
+    <label for="regno" class="form-label text-success fw-bold">Reg No</label>
+    <input type="text" class="form-control border-success" id="regno" name="regno">
+  </div>
+  <div class="col-md-3">
+    <label for="engineno" class="form-label text-danger fw-bold">Engine No</label>
+    <input type="text" class="form-control border-danger" id="engineno" name="engineno">
+  </div>
+  <div class="col-md-3">
+    <label for="model" class="form-label text-warning fw-bold">Model</label>
+    <input type="text" class="form-control border-warning" id="model" name="model">
+  </div>
+  <div class="col-md-2">
+    <label for="fuel" class="form-label text-info fw-bold">Fuel</label>
+    <input type="text" class="form-control border-info" id="fuel" name="fuel">
+  </div>
+  <div class="col-md-2">
+    <label for="year" class="form-label text-primary fw-bold">Year</label>
+    <input type="number" class="form-control border-primary" id="year" name="year">
+  </div>
+  <div class="col-md-2">
+    <label for="color" class="form-label text-success fw-bold">Color</label>
+    <input type="text" class="form-control border-success" id="color" name="color">
+  </div>
+  <div class="col-md-2">
+    <label for="insurance" class="form-label text-danger fw-bold">Insurance</label>
+    <input type="text" class="form-control border-danger" id="insurance" name="insurance">
+  </div>
+  <div class="col-md-2">
+    <label for="km" class="form-label text-warning fw-bold">KM</label>
+    <input type="number" class="form-control border-warning" id="km" name="km">
+  </div>
+  <div class="col-md-2">
+    <label for="rfcost" class="form-label text-info fw-bold">RF Cost</label>
+    <input type="number" class="form-control border-info" id="rfcost" name="rfcost">
+  </div>
+  <div class="col-md-2">
+    <label for="hp" class="form-label text-primary fw-bold">HP</label>
+    <input type="text" class="form-control border-primary" id="hp" name="hp">
+  </div>
+  <div class="col-md-2">
+    <label for="trafic" class="form-label text-success fw-bold">Traffic</label>
+    <input type="text" class="form-control border-success" id="trafic" name="trafic">
+  </div>
+  <div class="col-md-2">
+    <label for="pprice" class="form-label text-danger fw-bold">Purchase Price</label>
+    <input type="number" class="form-control border-danger" id="pprice" name="pprice">
+  </div>
+  <div class="col-md-2">
+    <label for="margine" class="form-label text-warning fw-bold">Margin</label>
+    <input type="number" class="form-control border-warning" id="margine" name="margine">
+  </div>
+  <div class="col-md-2">
+    <label for="pending" class="form-label text-info fw-bold">Pending</label>
+    <input type="text" class="form-control border-info" id="pending" name="pending">
+  </div>
+  <div class="col-md-3">
+    <label for="poname" class="form-label text-primary fw-bold">PO Name</label>
+    <input type="text" class="form-control border-primary" id="poname" name="poname">
+  </div>
+  <div class="col-md-3">
+    <label for="pdate" class="form-label text-success fw-bold">PO Date</label>
+    <input type="date" class="form-control border-success" id="pdate" name="pdate">
+  </div>
+  <div class="col-md-3">
+    <label for="customername" class="form-label text-danger fw-bold">Customer Name</label>
+    <input type="text" class="form-control border-danger" id="customername" name="customername">
+  </div>
+  <div class="col-md-3">
+    <label for="mobilenumber" class="form-label text-warning fw-bold">Mobile Number</label>
+    <input type="tel" class="form-control border-warning" id="mobilenumber" name="mobilenumber">
+  </div>
+  <div class="col-md-3">
+    <label for="soname" class="form-label text-info fw-bold">SO Name</label>
+    <input type="text" class="form-control border-info" id="soname" name="soname">
+  </div>
+  <div class="col-md-3">
+    <label for="ncar" class="form-label text-primary fw-bold">New/Car</label>
+    <input type="text" class="form-control border-primary" id="ncar" name="ncar">
+  </div>
+</div>

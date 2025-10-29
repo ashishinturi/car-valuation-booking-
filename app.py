@@ -15,30 +15,54 @@ try:
 except Exception as e:
     print("Database connection failed:", e)
 
-# ✅ Booking route
+# ✅ Booking + Valuation route
 @app.route("/", methods=["GET", "POST"])
 def booking():
     if request.method == "POST":
         try:
-            name = request.form["name"]
-            email = request.form["email"]
-            phone = request.form["phone"]
-            make = request.form["make"]
+            # Collect form data
+            sno = request.form["sno"]
+            regno = request.form["regno"]
+            engineno = request.form["engineno"]
             model = request.form["model"]
+            fuel = request.form["fuel"]
             year = request.form["year"]
-            mileage = request.form["mileage"]
-            condition = request.form["condition"]
-            date = request.form["date"]
-            time = request.form["time"]
+            color = request.form["color"]
+            insurance = request.form["insurance"]
+            km = request.form["km"]
+            rfcost = request.form["rfcost"]
+            hp = request.form["hp"]
+            trafic = request.form["trafic"]
+            pprice = request.form["pprice"]
+            margine = request.form["margine"]
+            pending = request.form["pending"]
+            poname = request.form["poname"]
+            pdate = request.form["pdate"]
+            customername = request.form["customername"]
+            mobilenumber = request.form["mobilenumber"]
+            soname = request.form["soname"]
+            ncar = request.form["ncar"]
 
+            # Insert into database
             cursor = db.cursor()
             cursor.execute("""
-                INSERT INTO bookings (name, email, phone, make, model, year, mileage, `condition`, `date`, `time`)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """, (name, email, phone, make, model, year, mileage, condition, date, time))
+                INSERT INTO valuations (
+                    sno, regno, engineno, model, fuel, year, color, insurance, km,
+                    rfcost, hp, trafic, pprice, margine, pending, poname, pdate,
+                    customername, mobilenumber, soname, ncar
+                ) VALUES (
+                    %s, %s, %s, %s, %s, %s, %s, %s, %s,
+                    %s, %s, %s, %s, %s, %s, %s, %s,
+                    %s, %s, %s, %s
+                )
+            """, (
+                sno, regno, engineno, model, fuel, year, color, insurance, km,
+                rfcost, hp, trafic, pprice, margine, pending, poname, pdate,
+                customername, mobilenumber, soname, ncar
+            ))
             db.commit()
 
-            return redirect(url_for("success"))  # ✅ Must be inside try block
+            return redirect(url_for("success"))
 
         except Exception as e:
             print("Form error:", e)
