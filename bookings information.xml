@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>8676</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Aptos Narrow" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s63">
+   <NumberFormat/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Table1">
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.4">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="109.8" ss:Span="4"/>
+   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="109.8" ss:Span="2"/>
+   <Row>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">email</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">phone</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">make</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">model</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">year</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">mileage</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">condition</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">time</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Inturi Ashish </Data></Cell>
+    <Cell><Data ss:Type="String">Inturiashish50@gmail.com</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">8309541709</Data></Cell>
+    <Cell><Data ss:Type="String">BMW</Data></Cell>
+    <Cell><Data ss:Type="String">X7</Data></Cell>
+    <Cell><Data ss:Type="Number">2017</Data></Cell>
+    <Cell><Data ss:Type="Number">12589</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-27</Data></Cell>
+    <Cell><Data ss:Type="String">10:38:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">Bhanu</Data></Cell>
+    <Cell><Data ss:Type="String">ashishinturi922@gmail.com</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">6309307342</Data></Cell>
+    <Cell><Data ss:Type="String">Mahindra </Data></Cell>
+    <Cell><Data ss:Type="String">Thar</Data></Cell>
+    <Cell><Data ss:Type="Number">2017</Data></Cell>
+    <Cell><Data ss:Type="Number">47566</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-27</Data></Cell>
+    <Cell><Data ss:Type="String">11:00:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="String">Hostel </Data></Cell>
+    <Cell><Data ss:Type="String">Vishwana@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">6309307342</Data></Cell>
+    <Cell><Data ss:Type="String">BMW</Data></Cell>
+    <Cell><Data ss:Type="String">I20</Data></Cell>
+    <Cell><Data ss:Type="Number">2003</Data></Cell>
+    <Cell><Data ss:Type="Number">123877</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-27</Data></Cell>
+    <Cell><Data ss:Type="String">12:05:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="String">Ashish Inturi </Data></Cell>
+    <Cell><Data ss:Type="String">Ashishinturi50@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">8309541709</Data></Cell>
+    <Cell><Data ss:Type="String">BMW</Data></Cell>
+    <Cell><Data ss:Type="String">X7</Data></Cell>
+    <Cell><Data ss:Type="Number">2003</Data></Cell>
+    <Cell><Data ss:Type="Number">56789</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-27</Data></Cell>
+    <Cell><Data ss:Type="String">09:35:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">inturi ashish</Data></Cell>
+    <Cell><Data ss:Type="String">inturiashish50@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">8309541709</Data></Cell>
+    <Cell><Data ss:Type="String">toyota</Data></Cell>
+    <Cell><Data ss:Type="String">innova</Data></Cell>
+    <Cell><Data ss:Type="Number">2014</Data></Cell>
+    <Cell><Data ss:Type="Number">125466</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-28</Data></Cell>
+    <Cell><Data ss:Type="String">10:22:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="String">sajja</Data></Cell>
+    <Cell><Data ss:Type="String">sajja@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">8309541709</Data></Cell>
+    <Cell><Data ss:Type="String">maruti</Data></Cell>
+    <Cell><Data ss:Type="String">dizer</Data></Cell>
+    <Cell><Data ss:Type="Number">2013</Data></Cell>
+    <Cell><Data ss:Type="Number">14568</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-28</Data></Cell>
+    <Cell><Data ss:Type="String">16:33:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="String">Inturi Ashish</Data></Cell>
+    <Cell><Data ss:Type="String">Vishwana@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">6309307342</Data></Cell>
+    <Cell><Data ss:Type="String">Mahindra </Data></Cell>
+    <Cell><Data ss:Type="String">Thar</Data></Cell>
+    <Cell><Data ss:Type="Number">2003</Data></Cell>
+    <Cell><Data ss:Type="Number">54348</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-28</Data></Cell>
+    <Cell><Data ss:Type="String">22:34:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="String">Inturi Ashish</Data></Cell>
+    <Cell><Data ss:Type="String">Vishwana@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">6309307342</Data></Cell>
+    <Cell><Data ss:Type="String">Mahindra </Data></Cell>
+    <Cell><Data ss:Type="String">Thar</Data></Cell>
+    <Cell><Data ss:Type="Number">2003</Data></Cell>
+    <Cell><Data ss:Type="Number">54348</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-28</Data></Cell>
+    <Cell><Data ss:Type="String">22:34:00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="String">Hostel </Data></Cell>
+    <Cell><Data ss:Type="String">Ashishinturi922@gmail.com</Data></Cell>
+    <Cell><Data ss:Type="String">9704418456</Data></Cell>
+    <Cell><Data ss:Type="String">Hyundai </Data></Cell>
+    <Cell><Data ss:Type="String">I20</Data></Cell>
+    <Cell><Data ss:Type="Number">2014</Data></Cell>
+    <Cell><Data ss:Type="Number">56879</Data></Cell>
+    <Cell><Data ss:Type="String">Fair</Data></Cell>
+    <Cell><Data ss:Type="String">2025-10-28</Data></Cell>
+    <Cell><Data ss:Type="String">10:38:00</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4:R10C4</Range>
+  </ConditionalFormatting>
+ </Worksheet>
+</Workbook>

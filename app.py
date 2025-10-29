@@ -3,7 +3,7 @@ import mysql.connector  # type: ignore
 
 app = Flask(__name__)
 
-# ✅ DB connection block
+# ✅ DB connection
 try:
     db = mysql.connector.connect(
         host="maglev.proxy.rlwy.net",
@@ -15,7 +15,7 @@ try:
 except Exception as e:
     print("Database connection failed:", e)
 
-# ✅ Booking + Valuation route
+# ✅ Valuation form route
 @app.route("/", methods=["GET", "POST"])
 def booking():
     if request.method == "POST":
