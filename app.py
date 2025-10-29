@@ -1,5 +1,7 @@
+from flask import Flask, render_template, request, redirect, url_for # pyright: ignore[reportMissingImports]
+import mysql.connector # pyright: ignore[reportMissingImports]
 
-import mysql.connector # type: ignore
+app = Flask(__name__)
 
 # ✅ Connect to MySQL database
 try:
@@ -15,40 +17,53 @@ except Exception as e:
     print("❌ Database connection failed:", e)
     exit()
 
-# ✅ Insert sample valuation entry
-try:
-    cursor = db.cursor()
-    cursor.execute("""
-        INSERT INTO valuations (
-            sno, regno, engineno, model, fuel, year, color, insurance, km,
-            rfcost, hp, trafic, pprice, margine, pending, poname, pdate,
-            customername, mobilenumber, soname, ncar
-        ) VALUES (
-            %s, %s, %s, %s, %s, %s, %s, %s, %s,
-            %s, %s, %s, %s, %s, %s, %s, %s,
-            %s, %s, %s, %s
-        )
-    """, (
-        "001", "TS09AB1234", "ENG123456", "Swift Dzire", "Petrol", 2020, "White", "Comprehensive", 35000,
-        15000, "HP123", "Hyderabad", 450000, 50000, "None", "Ravi Kumar", "2025-10-29",
-        "Anil Reddy", "9876543210", "Suresh", "Used"
-    ))
-    db.commit()
-    print("✅ Sample valuation entry inserted.")
-except Exception as e:
-    print("❌ Failed to insert record:", e)
+# ✅ Route: Valuation Form
+@app.route("/", methods=["GET", "POST"])
+def booking():
+    if request.method == "POST":
+        try:
+            # Collect form data
+            data = {key: request.form[key] for key in [
+                "sno", "regno", "engineno", "model", "fuel", "year", "color", "insurance", "km",
+                "rfcost", "hp", "trafic", "pprice", "margine", "pending", "poname", "pdate",
+                "customername", "mobilenumber", "soname", "ncar"
+            ]}
+            cursor = db.cursor()
+            cursor.execute("""
+                INSERT INTO valuations (
+                    sno, regno, engineno, model, fuel, year, color, insurance, km,
+                    rfcost, hp, trafic, pprice, margine, pending, poname, pdate,
+                    customername, mobilenumber, soname, ncar
+                ) VALUES (
+                    %(sno)s, %(regno)s, %(engineno)s, %(model)s, %(fuel)s, %(year)s, %(color)s, %(insurance)s, %(km)s,
+                    %(rfcost)s, %(hp)s, %(trafic)s, %(pprice)s, %(margine)s, %(pending)s, %(poname)s, %(pdate)s,
+                    %(customername)s, %(mobilenumber)s, %(soname)s, %(ncar)s
+                )
+            """, data)
+            db.commit()
+            return redirect(url_for("success"))
+        except Exception as e:
+            print("❌ Form submission error:", e)
+            return "Error submitting form"
+    return render_template("booking_form.html")
 
-# ✅ Fetch and display all entries
-try:
-    cursor = db.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM valuations ORDER BY pdate DESC")
-    records = cursor.fetchall()
+# ✅ Route: Success Page
+@app.route("/success")
+def success():
+    return render_template("success.html")
 
-    print("\n📋 Valuation Records:\n")
-    for row in records:
-        print(f"{row['sno']} | {row['regno']} | {row['engineno']} | {row['model']} | {row['fuel']} | {row['year']} | {row['color']} | {row['insurance']} | {row['km']} | {row['rfcost']} | {row['hp']} | {row['trafic']} | {row['pprice']} | {row['margine']} | {row['pending']} | {row['poname']} | {row['pdate']} | {row['customername']} | {row['mobilenumber']} | {row['soname']} | {row['ncar']}")
-except Exception as e:
-    print("❌ Failed to fetch records:", e)
-finally:
-    cursor.close()
-    db.close()
+# ✅ Route: View All Entries
+@app.route("/view")
+def view():
+    try:
+        cursor = db.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM valuations ORDER BY pdate DESC")
+        records = cursor.fetchall()
+        return render_template("view.html", records=records)
+    except Exception as e:
+        print("❌ View error:", e)
+        return "Unable to load valuation records"
+
+# ✅ Run the app
+if __name__ == "__main__":
+    app.run(debug=True)
