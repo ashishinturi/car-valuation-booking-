@@ -1,9 +1,22 @@
-@app.route("/", methods=["GET", "POST"]) # type: ignore
+from flask import Flask, render_template, request, redirect, url_for # pyright: ignore[reportMissingImports]
+import mysql.connector # pyright: ignore[reportMissingImports]
+
+app = Flask(__name__)
+
+# ✅ Connect to MySQL (update with your Railway credentials)
+db = mysql.connector.connect(
+    host="maglev.proxy.rlwy.net",
+    user="root",
+    password="mEoNxqOPsxHUwuVBiVpJcfeBeEDcoPIJ",
+    database="railway"
+)
+
+# ✅ Home route: form submission
+@app.route("/", methods=["GET", "POST"])
 def booking():
-    if request.method == "POST": # type: ignore
+    if request.method == "POST":
         try:
-            # Collect form data
-            data = {key: request.form[key] for key in [ # type: ignore # type: ignore
+            data = {key: request.form[key] for key in [
                 "sno", "valuation_date", "poname", "ncrso", "customername", "contact",
                 "make", "model", "suffix", "color", "insurance", "fuel", "year", "regno",
                 "date_of_reg", "milage", "satish_price", "venu_price", "expected_price",
@@ -11,8 +24,7 @@ def booking():
                 "followup1", "followup2", "asm_remark"
             ]}
 
-            # Insert into database
-            cursor = db.cursor() # type: ignore
+            cursor = db.cursor()
             cursor.execute("""
                 INSERT INTO valuations (
                     sno, valuation_date, poname, ncrso, customername, contact,
@@ -28,9 +40,30 @@ def booking():
                     %(followup1)s, %(followup2)s, %(asm_remark)s
                 )
             """, data)
-            db.commit() # type: ignore
-            return redirect(url_for("success")) # type: ignore
+            db.commit()
+            return redirect(url_for("success"))
         except Exception as e:
             print("❌ Form submission error:", e)
             return "Error submitting form"
-    return render_template("booking_form.html") # type: ignore
+    return render_template("booking_form.html")
+
+# ✅ Success route
+@app.route("/success")
+def success():
+    return "<h3 style='text-align:center; margin-top:50px;'>✅ Valuation submitted successfully!</h3>"
+
+# ✅ View route
+@app.route("/view")
+def view():
+    try:
+        cursor = db.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM valuations ORDER BY valuation_date DESC")
+        rows = cursor.fetchall()
+        return render_template("view.html", rows=rows)
+    except Exception as e:
+        print("❌ View error:", e)
+        return "Error loading data"
+
+# ✅ Run the app locally
+if __name__ == "__main__":
+    app.run(debug=True)
