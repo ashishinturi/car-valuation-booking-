@@ -11,32 +11,46 @@
     <h2 class="mb-4 text-primary">Valuation Entry Form</h2>
     <form method="POST" action="/">
       <div class="row g-3">
-        <div class="col-md-3"><input type="text" name="sno" class="form-control" placeholder="S No" required></div>
-        <div class="col-md-3"><input type="text" name="regno" class="form-control" placeholder="Reg No" required></div>
-        <div class="col-md-3"><input type="text" name="engineno" class="form-control" placeholder="Engine No" required></div>
-        <div class="col-md-3"><input type="text" name="model" class="form-control" placeholder="Model" required></div>
 
+        <!-- Basic Info -->
+        <div class="col-md-3"><input type="text" name="sno" class="form-control" placeholder="S No" required></div>
+        <div class="col-md-3"><input type="date" name="valuation_date" class="form-control" placeholder="Valuation Date" required></div>
+        <div class="col-md-3"><input type="text" name="poname" class="form-control" placeholder="PO Name" required></div>
+        <div class="col-md-3"><input type="text" name="ncrso" class="form-control" placeholder="NCR SO" required></div>
+
+        <!-- Customer Info -->
+        <div class="col-md-3"><input type="text" name="customername" class="form-control" placeholder="Customer Name" required></div>
+        <div class="col-md-3"><input type="text" name="contact" class="form-control" placeholder="Contact" required></div>
+
+        <!-- Vehicle Info -->
+        <div class="col-md-3"><input type="text" name="make" class="form-control" placeholder="Make" required></div>
+        <div class="col-md-3"><input type="text" name="model" class="form-control" placeholder="Model" required></div>
+        <div class="col-md-3"><input type="text" name="suffix" class="form-control" placeholder="Suffix" required></div>
+        <div class="col-md-3"><input type="text" name="color" class="form-control" placeholder="Colour" required></div>
+        <div class="col-md-3"><input type="text" name="insurance" class="form-control" placeholder="Insurance" required></div>
         <div class="col-md-3"><input type="text" name="fuel" class="form-control" placeholder="Fuel" required></div>
         <div class="col-md-3"><input type="number" name="year" class="form-control" placeholder="Year" required></div>
-        <div class="col-md-3"><input type="text" name="color" class="form-control" placeholder="Color" required></div>
-        <div class="col-md-3"><input type="text" name="insurance" class="form-control" placeholder="Insurance" required></div>
+        <div class="col-md-3"><input type="text" name="regno" class="form-control" placeholder="Reg No" required></div>
+        <div class="col-md-3"><input type="date" name="date_of_reg" class="form-control" placeholder="Date of Reg" required></div>
+        <div class="col-md-3"><input type="number" name="milage" class="form-control" placeholder="Mileage" required></div>
 
-        <div class="col-md-3"><input type="number" name="km" class="form-control" placeholder="KM" required></div>
+        <!-- Pricing -->
+        <div class="col-md-3"><input type="number" name="satish_price" class="form-control" placeholder="Satish San Price" required></div>
+        <div class="col-md-3"><input type="number" name="venu_price" class="form-control" placeholder="Venu San Price" required></div>
+        <div class="col-md-3"><input type="number" name="expected_price" class="form-control" placeholder="Customer Expected Price" required></div>
+        <div class="col-md-3"><input type="number" name="gap" class="form-control" placeholder="Gap" required></div>
+
+        <!-- Additional Info -->
+        <div class="col-md-3"><input type="text" name="accident" class="form-control" placeholder="Accident Yes/No" required></div>
         <div class="col-md-3"><input type="number" name="rfcost" class="form-control" placeholder="RF Cost" required></div>
-        <div class="col-md-3"><input type="text" name="hp" class="form-control" placeholder="HP" required></div>
-        <div class="col-md-3"><input type="text" name="trafic" class="form-control" placeholder="Traffic" required></div>
+        <div class="col-md-3"><input type="text" name="newcar_model" class="form-control" placeholder="New Car Model" required></div>
+        <div class="col-md-3"><input type="text" name="newcar_booking" class="form-control" placeholder="New Car Booking" required></div>
 
-        <div class="col-md-3"><input type="number" name="pprice" class="form-control" placeholder="Purchase Price" required></div>
-        <div class="col-md-3"><input type="number" name="margine" class="form-control" placeholder="Margin" required></div>
-        <div class="col-md-3"><input type="text" name="pending" class="form-control" placeholder="Pending" required></div>
-        <div class="col-md-3"><input type="text" name="poname" class="form-control" placeholder="PO Name" required></div>
+        <!-- Follow-ups -->
+        <div class="col-md-3"><input type="text" name="followup1" class="form-control" placeholder="1st Followup" required></div>
+        <div class="col-md-3"><input type="text" name="followup2" class="form-control" placeholder="2nd Followup" required></div>
+        <div class="col-md-6"><input type="text" name="asm_remark" class="form-control" placeholder="ASM Remark" required></div>
 
-        <div class="col-md-3"><input type="date" name="pdate" class="form-control" placeholder="PO Date" required></div>
-        <div class="col-md-3"><input type="text" name="customername" class="form-control" placeholder="Customer Name" required></div>
-        <div class="col-md-3"><input type="text" name="mobilenumber" class="form-control" placeholder="Mobile Number" required></div>
-        <div class="col-md-3"><input type="text" name="soname" class="form-control" placeholder="SO Name" required></div>
-
-        <div class="col-md-3"><input type="text" name="ncar" class="form-control" placeholder="New/Car" required></div>
       </div>
 
       <div class="mt-4">

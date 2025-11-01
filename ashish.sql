@@ -1,0 +1,23 @@
+CREATE TABLE valuations (
+  sno VARCHAR(10),
+  regno VARCHAR(20),
+  engineno VARCHAR(20),
+  model VARCHAR(50),
+  fuel VARCHAR(20),
+  year INT,
+  color VARCHAR(20),
+  insurance VARCHAR(30),
+  km INT,
+  rfcost INT,
+  hp VARCHAR(20),
+  trafic VARCHAR(30),
+  pprice INT,
+  margine INT,
+  pending VARCHAR(30),
+  poname VARCHAR(50),
+  pdate DATE,
+  customername VARCHAR(50),
+  mobilenumber VARCHAR(15),
+  soname VARCHAR(50),
+  ncar VARCHAR(10)
+);

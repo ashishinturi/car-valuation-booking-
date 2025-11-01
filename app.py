@@ -1,69 +1,36 @@
-from flask import Flask, render_template, request, redirect, url_for # pyright: ignore[reportMissingImports]
-import mysql.connector # pyright: ignore[reportMissingImports]
-
-app = Flask(__name__)
-
-# ✅ Connect to MySQL database
-try:
-    db = mysql.connector.connect(
-        host="maglev.proxy.rlwy.net",
-        port=55869,
-        user="root",
-        password="mEoNxqOPsxHUwuVBiVpJcfeBeEDcoPIJ",
-        database="railway"
-    )
-    print("✅ Connected to database successfully.")
-except Exception as e:
-    print("❌ Database connection failed:", e)
-    exit()
-
-# ✅ Route: Valuation Form
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"]) # type: ignore
 def booking():
-    if request.method == "POST":
+    if request.method == "POST": # type: ignore
         try:
             # Collect form data
-            data = {key: request.form[key] for key in [
-                "sno", "regno", "engineno", "model", "fuel", "year", "color", "insurance", "km",
-                "rfcost", "hp", "trafic", "pprice", "margine", "pending", "poname", "pdate",
-                "customername", "mobilenumber", "soname", "ncar"
+            data = {key: request.form[key] for key in [ # type: ignore # type: ignore
+                "sno", "valuation_date", "poname", "ncrso", "customername", "contact",
+                "make", "model", "suffix", "color", "insurance", "fuel", "year", "regno",
+                "date_of_reg", "milage", "satish_price", "venu_price", "expected_price",
+                "gap", "accident", "rfcost", "newcar_model", "newcar_booking",
+                "followup1", "followup2", "asm_remark"
             ]}
-            cursor = db.cursor()
+
+            # Insert into database
+            cursor = db.cursor() # type: ignore
             cursor.execute("""
                 INSERT INTO valuations (
-                    sno, regno, engineno, model, fuel, year, color, insurance, km,
-                    rfcost, hp, trafic, pprice, margine, pending, poname, pdate,
-                    customername, mobilenumber, soname, ncar
+                    sno, valuation_date, poname, ncrso, customername, contact,
+                    make, model, suffix, color, insurance, fuel, year, regno,
+                    date_of_reg, milage, satish_price, venu_price, expected_price,
+                    gap, accident, rfcost, newcar_model, newcar_booking,
+                    followup1, followup2, asm_remark
                 ) VALUES (
-                    %(sno)s, %(regno)s, %(engineno)s, %(model)s, %(fuel)s, %(year)s, %(color)s, %(insurance)s, %(km)s,
-                    %(rfcost)s, %(hp)s, %(trafic)s, %(pprice)s, %(margine)s, %(pending)s, %(poname)s, %(pdate)s,
-                    %(customername)s, %(mobilenumber)s, %(soname)s, %(ncar)s
+                    %(sno)s, %(valuation_date)s, %(poname)s, %(ncrso)s, %(customername)s, %(contact)s,
+                    %(make)s, %(model)s, %(suffix)s, %(color)s, %(insurance)s, %(fuel)s, %(year)s, %(regno)s,
+                    %(date_of_reg)s, %(milage)s, %(satish_price)s, %(venu_price)s, %(expected_price)s,
+                    %(gap)s, %(accident)s, %(rfcost)s, %(newcar_model)s, %(newcar_booking)s,
+                    %(followup1)s, %(followup2)s, %(asm_remark)s
                 )
             """, data)
-            db.commit()
-            return redirect(url_for("success"))
+            db.commit() # type: ignore
+            return redirect(url_for("success")) # type: ignore
         except Exception as e:
             print("❌ Form submission error:", e)
             return "Error submitting form"
-    return render_template("booking_form.html")
-
-# ✅ Route: Success Page
-@app.route("/success")
-def success():
-    return render_template("success.html")
-
-# ✅ Route: View All Entries
-@app.route("/view")
-def view():
-    try:
-        cursor = db.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM valuations ORDER BY pdate DESC")
-        records = cursor.fetchall()
-        return render_template("view.html", records=records)
-    except Exception as e:
-        print("❌ View error:", e)
-        return "Unable to load valuation records"
-
-# ✅ Run the app
-if __name__ == "__main__":
-    app.run(debug=True)
+    return render_template("booking_form.html") # type: ignore
