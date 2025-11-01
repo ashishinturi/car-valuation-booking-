@@ -3,7 +3,7 @@ import mysql.connector # pyright: ignore[reportMissingImports]
 
 app = Flask(__name__)
 
-# ✅ Connect to MySQL (update with your Railway credentials)
+# ✅ Connect to Railway MySQL
 db = mysql.connector.connect(
     host="maglev.proxy.rlwy.net",
     user="root",
@@ -11,7 +11,7 @@ db = mysql.connector.connect(
     database="railway"
 )
 
-# ✅ Home route: form submission
+# ✅ Route: Valuation Form
 @app.route("/", methods=["GET", "POST"])
 def booking():
     if request.method == "POST":
@@ -47,12 +47,12 @@ def booking():
             return "Error submitting form"
     return render_template("booking_form.html")
 
-# ✅ Success route
+# ✅ Route: Success Page
 @app.route("/success")
 def success():
     return "<h3 style='text-align:center; margin-top:50px;'>✅ Valuation submitted successfully!</h3>"
 
-# ✅ View route
+# ✅ Route: View Entries
 @app.route("/view")
 def view():
     try:
@@ -64,6 +64,6 @@ def view():
         print("❌ View error:", e)
         return "Error loading data"
 
-# ✅ Run the app locally
+# ✅ Run Locally
 if __name__ == "__main__":
     app.run(debug=True)
