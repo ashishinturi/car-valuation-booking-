@@ -7,11 +7,11 @@ app = Flask(__name__)
 # ✅ Connect to Railway MySQL
 db = mysql.connector.connect(
     host="maglev.proxy.rlwy.net",
+    port=55869,
     user="root",
     password="mEoNxqOPsxHUwuVBiVpJcfeBeEDcoPIJ",
     database="railway"
 )
-
 # ✅ Route: Valuation Form
 @app.route("/", methods=["GET", "POST"])
 def booking():
